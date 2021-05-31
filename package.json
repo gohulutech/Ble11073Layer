@@ -1,0 +1,16 @@
+{
+  "name": "ble_central",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hugo Arevalo",
+  "license": "ISC",
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-14",
+    "noble-mac": "https://github.com/Timeular/noble-mac.git"
+  }
+}
