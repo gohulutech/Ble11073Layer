@@ -2,15 +2,34 @@
   "name": "ble_central",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node index.ts",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc"
   },
   "author": "Hugo Arevalo",
   "license": "ISC",
   "dependencies": {
     "@abandonware/noble": "^1.9.2-14",
-    "noble-mac": "https://github.com/Timeular/noble-mac.git"
+    "@mapbox/node-pre-gyp": "^1.0.5",
+    "@types/bindings": "^1.5.1",
+    "@types/bluebird": "^3.5.36",
+    "@types/noble-mac": "0.0.2",
+    "bindings": "^1.5.0",
+    "bluebird": "^3.7.2",
+    "noble-mac": "https://github.com/Timeular/noble-mac.git",
+    "xpc-connection": "github:sandeepmistry/node-xpc-connection#pull/26/head"
+  },
+  "resolutions": {
+    "xpc-connection": "sandeepmistry/node-xpc-connection#pull/26/head"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.0",
+    "node-loader": "^2.0.0",
+    "ts-node": "^10.3.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.4"
   }
 }

@@ -1,4 +1,4 @@
-exports.BLE_STATES = {
+export const BLE_STATES = {
   UNKNOWN: "unkown",
   RESETTING: "resetting",
   UNSUPPORTED: "unsupported",
