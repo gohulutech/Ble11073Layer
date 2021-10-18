@@ -1,6 +1,6 @@
 import * as noble from "@abandonware/noble";
 import { server } from "./server";
-import { BLE_STATES } from "./constants";
+import { BleState } from "./constants/BleState";
 
 const hostname = "127.0.0.1";
 const port = 3000;
@@ -13,9 +13,9 @@ const changeLedValue = async (peripheral: noble.Peripheral) => {
 
   if (!led0) return;
 
-  const buffer = await led0[0].characteristics[0].readAsync();
+  const buffer = await led0.characteristics[0].readAsync();
   buffer[0] = buffer[0] === 0x00 ? 0x01 : 0x00;
-  await led0[0].characteristics[0].writeAsync(buffer, false);
+  await led0.characteristics[0].writeAsync(buffer, false);
 };
 
 const readOximeterValue = async (peripheral: noble.Peripheral) => {
@@ -34,8 +34,8 @@ const readOximeterValue = async (peripheral: noble.Peripheral) => {
   // console.log(buffer);
 };
 
-noble.on("stateChange", async (state) => {
-  if (state !== BLE_STATES.POWEREDON) {
+noble.on("stateChange", async (state: BleState) => {
+  if (state !== BleState.POWEREDON) {
     console.error("Bluetooth not enabled");
     return;
   }
@@ -50,7 +50,7 @@ noble.on("discover", async (peripheral) => {
   if (peripheral.id !== "036298d3b0dc43f7ac0613379ea38925") return;
 
   try {
-    noble.stopScanning();
+    await noble.stopScanningAsync();
     await peripheral.connectAsync();
 
     await changeLedValue(peripheral);
