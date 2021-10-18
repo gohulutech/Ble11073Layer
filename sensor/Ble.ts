@@ -18,8 +18,6 @@ const changeLedValue = async (peripheral: noble.Peripheral) => {
 };
 
 const onBleDiscover = async (peripheral: noble.Peripheral): Promise<void> => {
-  console.log(peripheral);
-
   if (peripheral.id !== "036298d3b0dc43f7ac0613379ea38925") return;
 
   try {

@@ -1,5 +1,5 @@
 import { server } from "./server";
-import { Ble } from "./sensor/Ble";
+import { Ble } from "./sensor/ble";
 
 const hostname = "127.0.0.1";
 const port = 3000;
